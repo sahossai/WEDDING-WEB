@@ -47,14 +47,14 @@ export class LoginComponent implements OnInit {
       user.provider = userData.provider;
       user.profile_image = userData.image;
       console.log('Login send user :::::: ' + JSON.stringify(user));
-      this.authService.login(user).subscribe( user => {
+      this.authService.register(user).subscribe( user => {
         console.log('Login Response :::::: ' + JSON.stringify(user));
       });
     });
   }
 
   login() {
-    if(this.signinForm.invalid){
+    if (this.signinForm.invalid) {
       return;
     }
     let userBuilder = new UserBuilder();
