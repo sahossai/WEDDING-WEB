@@ -1,0 +1,44 @@
+@import '~scss/styles';
+//-----------------------------------------------//
+//-------------------Prifiles--------------------//
+//-----------------------------------------------//
+.profiles-bg {
+    background: url('../../../../assets/img/home/home9.jpg');
+    width: 100%;
+    height: auto !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.profiles-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(241, 234, 232, 0.7);
+}
+
+.card-bg {
+    background: rgba(201, 180, 174, 0.123);
+    box-shadow: 2px 2px 5px $secondary;
+    min-height: 28rem !important;
+}
+
+.card-body>img {
+    width: 12.5rem !important;
+    height: 12.5rem !important;
+    background-position: center;
+}
+
+.card-body>h3 {
+    color: black !important;
+}
+
+.card-body>h5 {
+    font-family: $font-Raleway-sans-serif !important;
+}
+
+.card-body>h4 {
+    font-family: $font-Raleway-sans-serif !important;
+    font-weight: 600;
+    text-transform: uppercase;
+}

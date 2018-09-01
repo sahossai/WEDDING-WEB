@@ -1,0 +1,70 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="overlay">
+      <div class="wrap-login100 p-t-90 p-b-30">
+        <form class="login100-form validate-form" [formGroup]='signinForm' (ngSubmit)="login()">
+          <span class="login100-form-title p-b-40 py-5 sub-slogan">
+            Login
+          </span>
+
+          <div>
+            <button (click)="socialSignIn('facebook')" type="button" class="btn-login-with bg1 m-b-10 my-2">
+              <i class="fa fa-facebook-official"></i>
+              Login with Facebook
+            </button>
+
+            <button (click)="socialSignIn('google')" type="button" class="btn-login-with bg2 my-2">
+              <i class="fa fa-google"></i>
+              Login with Google
+            </button>
+          </div>
+
+          <div class="text-center p-t-55 p-b-30 my-5">
+            <span class="login100-form-title">
+              Login with email
+            </span>
+          </div>
+
+          <div class="wrap-input100 my-3 form-group">
+            <input class="input100" type="text" name="email" placeholder="Email" formControlName='email'>
+            <span class="focus-input100"></span>
+            <div *ngIf="signinForm.controls.email.touched || signinForm.controls.email.invalid" class="invalid-feedback">
+              Email Name is required
+            </div>
+          </div>
+
+          <div class="wrap-input100 validate-input m-b-20" data-validate="Please enter password">
+            <span class="btn-show-pass">
+              <i class="fa fa fa-eye"></i>
+            </span>
+            <input class="input100" type="password" name="pass" placeholder="Password" formControlName='password'>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="container-login100-form-btn my-3">
+            <button class="login100-form-btn" type="submit">
+              Login
+            </button>
+          </div>
+
+          <div class="flex-col-c p-t-224 text-center py-3">
+            <a href="/register" class="txt3 bo1 hov1">
+              Forgot Password?
+            </a>
+          </div>
+
+          <div class="flex-col-c p-t-224">
+            <span class="txt2 p-b-10">
+              Don’t have an account?
+            </span>
+
+            <a href="/register" class="txt3 bo1 hov1">
+              Sign up now
+            </a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

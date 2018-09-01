@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+@import './vars';
+
+//$primary: $primary-color !default;
+$primary: $primary-color;
+// Custom.scss
+// Option A: Include all of Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+.bg-parralax {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(236, 229, 229, 0.6);
+}
+
+.fa-right-arrow {
+    font-size: $fa-right-arrow-font-size;
+    font-weight: 200;
+}
+
+.h1-general {
+    font-size: 4rem;
+}
+
+.h3-general {
+    font-size: 3rem;
+}
+
+.primary-box {
+    border: 4px solid $primary;
+    padding: 1rem;
+}
+.primary-box:hover {
+    background: $primary;
+    .fa {
+        color: white !important;
+    }
+}
+
+.right-arrow-button {
+    font-family: $font-Raleway-sans-serif;
+    font-size: $general-button-font-size;
+    font-weight: 500;
+}
+
+.slogan {
+    font-family: $font-Raleway-sans-serif;
+    font-weight: 300;
+    margin-top: 20rem;
+}
+
+.sub-slogan {
+    font-family: $font-Julius;
+    font-weight: 400;
+}
+
+.border-primary {
+    border: 0.3rem solid $primary;
+    height: auto;
+    p {
+        font-family: $font-Raleway-sans-serif;
+        font-weight: 500;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+@import '~scss/styles';
+
+.navbar {
+    box-shadow: 2px 2px 5px $secondary;
+    opacity: 0.9;
+    .nav-item {
+        font-size: $navbar-header-font-size;
+        padding-right: 1rem;
+    }
+    .nav-link {
+        color: #fff !important;
+        font-family: $font-Raleway-sans-serif;
+        
+    }
+
+    .stylish-header {
+        font-family: $font-stylish-header;
+        color: $header-text-color !important;
+        font-size: $stylist-header-font-size;
+    }
+}
+
+
+
