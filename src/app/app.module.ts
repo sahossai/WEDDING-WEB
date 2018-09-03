@@ -1,7 +1,8 @@
 import { AppRouteModule } from './app-route';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+// import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { LoveStoryComponent } from './components/home/love-story/love-story.comp
 import { ProfileListComponent } from './components/home/profile-list/profile-list.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 
-import {
+import { 
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
@@ -51,11 +52,12 @@ export function getAuthServiceConfigs() {
     RegistrationComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AngularFontAwesomeModule,
     AppRouteModule,
     SocialLoginModule,
-    HttpModule,
+    // HttpModule,
     FormsModule,
     ReactiveFormsModule
   ],

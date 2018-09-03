@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { Endpoints } from '../Endponits';
 
 @Injectable()
 export class AppAuthService {
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   login(user: User) {
     return this.http.post(Endpoints.LOGIN, user);
