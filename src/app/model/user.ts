@@ -1,5 +1,6 @@
 
 export class User {
+    static user: User;
     phone: string;    
     token: string;
     email: string;
@@ -8,6 +9,14 @@ export class User {
     provider: string;
     userId: string;
     profile_image: string;
+
+    static setUser(user: User) {
+        this.user  = user;
+    }
+
+    static getUser() {
+        return this.user;
+    }
 
 }
 

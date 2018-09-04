@@ -3,11 +3,13 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { RegistrationComponent } from './components/authentication/registration/registration.component';
+import { ProfileListComponent } from './components/home/profile-list/profile-list.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
+  {path: 'profile-list', component: ProfileListComponent},
   // {path: 'register', component: RegisterComponent},
   // {path: 'file-upload', component: FileUploadComponent},
   // {path: 'users', component: UsersComponent, children: [

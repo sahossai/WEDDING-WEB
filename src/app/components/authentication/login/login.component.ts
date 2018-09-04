@@ -7,6 +7,9 @@ import {
 import { User, UserBuilder } from "../../../model/user";
 import { AppAuthService } from '../../../services/auth.service';
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
+import { GenericResponse } from "../../../model/generic.response";
+
 
 @Component({
   selector: "app-login",
@@ -16,11 +19,11 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 export class LoginComponent implements OnInit {
   signinForm: FormGroup;
   submitted = false;
-  constructor(private frmbuilder: FormBuilder, private socialAuthService: AuthService, private authService: AppAuthService) {
+  constructor(private frmbuilder: FormBuilder, private socialAuthService: AuthService, private authService: AppAuthService, private router: Router) {
     this.initializeForm();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   initializeForm() {
     this.signinForm = this.frmbuilder.group({
@@ -46,23 +49,37 @@ export class LoginComponent implements OnInit {
       user.userId = userData.id;
       user.provider = userData.provider;
       user.profile_image = userData.image;
-      console.log('Login send user :::::: ' + JSON.stringify(user));
-      this.authService.login(user).subscribe( user => {
-        console.log('Login Response :::::: ' + JSON.stringify(user));
+      // console.log('Login send user :::::: ' + JSON.stringify(user));
+      this.authService.register(user).subscribe(response => {
+        let genResponse: GenericResponse = <GenericResponse>response;
+        console.log('Social Login response :' + JSON.stringify(genResponse));
+        if (genResponse.code === 200) {
+          User.setUser(genResponse.response);
+          this.router.navigate(["/profile-list"]);
+        } else {
+
+        }
       });
     });
   }
 
   login() {
-    if(this.signinForm.invalid){
+    if (this.signinForm.invalid) {
       return;
     }
     let userBuilder = new UserBuilder();
     userBuilder.setEmail(this.signinForm.get('email').value);
     userBuilder.setPassword(this.signinForm.get('password').value);
     this.authService.login(userBuilder.getUser()).subscribe(response => {
-      console.log('Login response :' + JSON.stringify(response));
-    }, error=> {
+      let genResponse: GenericResponse = <GenericResponse>response;
+      console.log('Login response :' + JSON.stringify(genResponse));
+      if (genResponse.code === 200) {
+        User.setUser(genResponse.response);
+        this.router.navigate(["/profile-list"]);
+      } else {
+
+      }
+    }, error => {
       console.log('Login error :' + JSON.stringify(error));
     });
   }
